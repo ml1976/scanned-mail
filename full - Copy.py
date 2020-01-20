@@ -8,11 +8,6 @@ import pyocr.builders
 import io
 import os
 from shutil import copy
-from rake_nltk import Rake
-import pandas as pd
-from gensim.summarization import keywords 
-import warnings
-import re
 
 def start_scanning(file_path):
     tool = pyocr.get_available_tools()[0]
@@ -50,29 +45,8 @@ def start_scanning(file_path):
 
     with open('./output_text_file/listfile.txt', 'r') as f:
         list_text_file = f.read().split()
-        
-    list_to_string = ' '.join(map(str, list_text_file))
-
-    # uding regex to get all caps words
-    result = filter(None, [x.strip() for x in re.findall(r"\b[A-Z\s]+\b", list_to_string)])
-    print(*result) # printing the list using * operator separated by space  
-
-    # values = keywords(text=list_to_string, split='\n', scores=True)
-    # data = pd.DataFrame(values, columns=['keyword','score'])
-    # data = data.sort_values('score', ascending=False)
-    # print(data.head(10))
     
-    print('this is text in string: ' + list_to_string)
-
-
-    # r = Rake()
-    # r.extract_keywords_from_text(list_to_string)
-    # phrases = r.get_ranked_phrases_with_scores()
-    # table = pd.DataFrame(phrases, columns=['score', 'Phrase'])
-    # table = table.sort_values('score', ascending=False)
-    # print(table.head(10))
-    
-    #print(list_text_file)
+    print(list_text_file)
 
     for word in list_text_file:
         if word.lower() in company_name:

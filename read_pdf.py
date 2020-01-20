@@ -9,6 +9,7 @@ from PIL import Image as PI
 import pyocr
 import pyocr.builders
 import io
+import os
 
 tool = pyocr.get_available_tools()[0]
 #lang = tool.get_available_languages()[1]
@@ -17,7 +18,9 @@ tool = pyocr.get_available_tools()[0]
 req_image = []
 final_text = []
 
-image_pdf = Image(filename="./scanned_pdf_files/wow2.pdf", resolution=300)
+path_to_pdf = "./scanned_pdf_files/wow6.pdf"
+path_to_new_pdf = "./scanned_pdf_files/"
+image_pdf = Image(filename=path_to_pdf, resolution=300)
 image_jpeg = image_pdf.convert('jpeg')
 
 for img in image_jpeg.sequence:
@@ -59,8 +62,10 @@ print(found_company)
 
 # create subject for email
 
-subject_str = found_company.capitalize() + ' mail'
+subject_str = found_company.capitalize() + ' mail' + '.pdf'
 print(subject_str)
+#os.rename(path_to_pdf, path_to_new_pdf + subject_str)
+
 
 '''
 with open('listfile.txt') as file:
