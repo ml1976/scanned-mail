@@ -40,8 +40,7 @@ with open('./output_text_file/listfile.txt', 'w') as f:
 
 print('DONE')
 
-company_name = ['terglau', 'vodeni', 'fors', 'primus',
-                'prim usa', 'chegar', 'kecman', 'durisic']
+company_name = ['']
 
 
 found_company = ''
