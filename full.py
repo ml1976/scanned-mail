@@ -40,8 +40,7 @@ def start_scanning(file_path):
             f.write('%s\n' % item)
     
     
-    company_name = ['terglau', 'vodeni', 'fors', 'primus',
-                    'prim usa', 'chegar', 'kecman', 'durisic', 'tanasic']
+    company_name = []
 
     sender_names = ['triumph']
 
